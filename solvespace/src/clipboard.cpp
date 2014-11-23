@@ -125,7 +125,7 @@ void GraphicsWindow::CopySelection(void) {
     Constraint *c;
     for(c = SK.constraint.First(); c; c = SK.constraint.NextAfter(c)) {
         if(c->type == Constraint::POINTS_COINCIDENT) {
-            if(!SS.clipboard.ContainsEntity(c->ptA)) continue;  //m no entities for given points -> empty points -> don't constrain
+            if(!SS.clipboard.ContainsEntity(c->ptA)) continue;  //mv no entities for given points -> empty points -> don't constrain
             if(!SS.clipboard.ContainsEntity(c->ptB)) continue;
         }
 		else if (c->type == Constraint::HORIZONTAL || c->type == Constraint::VERTICAL) {
@@ -154,9 +154,8 @@ void GraphicsWindow::CopySelection(void) {
 			if (!SS.clipboard.ContainsEntity(c->entityA)) continue;
 		}
 		else if (c->type == Constraint::EQUAL_RADIUS) {
-			//This is intended for copying a copy of diameter constrained circle (hole).
 			if (!SS.clipboard.ContainsEntity(c->entityA) && !SS.clipboard.ContainsEntity(c->entityB)) continue;
-			if (SS.clipboard.ContainsEntity(c->entityA) && SS.clipboard.ContainsEntity(c->entityB)) continue;	//note: only one circle can be copied with that particular constraint can be copied!
+			if (SS.clipboard.ContainsEntity(c->entityA) && SS.clipboard.ContainsEntity(c->entityB)) continue;	//mv note: only one circle with this particular constraint can be copied!
 			c = c;
 		}
 		else {
@@ -227,10 +226,11 @@ void GraphicsWindow::PasteClipboard(Vector trans, double theta, double scale) {
             Constraint::ConstrainCoincident(SS.clipboard.NewEntityFor(c->ptA),
                                             SS.clipboard.NewEntityFor(c->ptB));
         }
-		if (c->type == Constraint::HORIZONTAL || c->type == Constraint::VERTICAL) { //horizontally constrainted is either a line segment or 2 points
+		if (c->type == Constraint::HORIZONTAL || c->type == Constraint::VERTICAL) { //mv horizontally constrainted object is either a line segment or 2 points
 			if (!SS.copyConstraints) continue;
             Entity *ea = SK.GetEntityNoOops(c->entityA);
             if(ea && ea->type == Entity::LINE_SEGMENT) {
+				if (!SS.copyConstraints) continue;
                 Constraint::Constrain(c->type,
                                         Entity::NO_ENTITY,
                                         Entity::NO_ENTITY,
@@ -262,7 +262,7 @@ void GraphicsWindow::PasteClipboard(Vector trans, double theta, double scale) {
 				Entity::NO_ENTITY,
 				c->valA);
 		}
-		if (c->type == Constraint::EQUAL_RADIUS && requestCount == 1) {	//can't work with multiple circles in the clipboard
+		if (c->type == Constraint::EQUAL_RADIUS && requestCount == 1) {	//mv can't work with multiple circles in the clipboard
 			if (!SS.copyConstraints) continue;
 			Entity *ea = SK.GetEntityNoOops(c->entityA);
 			if (ea) {
