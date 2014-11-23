@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D67B4C78-18ED-4C38-86CF-6975BE066B5C}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>solvespaceWin</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);src;extlib\libpng;extlib\si;extlib\zlib</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions);_CRT_SECURE_NO_DEPRECEATE;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x500;_WIN32_IE=_WIN32_WINNT;ISOLATION_AWARE_ENABLED;WIN32_LEAN_AND_MEAN;PACKAGE_VERSION="2.1eMVe2"</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <TypeLibraryFile>65534</TypeLibraryFile>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;opengl32.lib;glu32.lib;extlib\libpng\libpng.lib;extlib\zlib\zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="extlib\libpng\png.h" />
+    <ClInclude Include="extlib\libpng\pngconf.h" />
+    <ClInclude Include="extlib\libpng\pnglibconf.h" />
+    <ClInclude Include="extlib\si\si.h" />
+    <ClInclude Include="extlib\si\siapp.h" />
+    <ClInclude Include="extlib\si\siSync.h" />
+    <ClInclude Include="extlib\si\siSyncPriv.h" />
+    <ClInclude Include="extlib\si\spwdata.h" />
+    <ClInclude Include="extlib\si\spwerror.h" />
+    <ClInclude Include="extlib\si\spwmacro.h" />
+    <ClInclude Include="extlib\zlib\zconf.h" />
+    <ClInclude Include="extlib\zlib\zlib.h" />
+    <ClInclude Include="src\win32\freeze.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="solvespaceWin.h" />
+    <ClInclude Include="src\bitmapextra.table.h" />
+    <ClInclude Include="src\bitmapfont.table.h" />
+    <ClInclude Include="src\built\bitmapextra.table.h" />
+    <ClInclude Include="src\built\bitmapfont.table.h" />
+    <ClInclude Include="src\built\icons-proto.h" />
+    <ClInclude Include="src\built\icons.h" />
+    <ClInclude Include="src\dsc.h" />
+    <ClInclude Include="src\expr.h" />
+    <ClInclude Include="src\font.table.h" />
+    <ClInclude Include="src\icons-proto.h" />
+    <ClInclude Include="src\icons.h" />
+    <ClInclude Include="src\polygon.h" />
+    <ClInclude Include="src\sketch.h" />
+    <ClInclude Include="src\solvespace.h" />
+    <ClInclude Include="src\srf\surface.h" />
+    <ClInclude Include="src\ui.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\win32\freeze.cpp" />
+    <ClCompile Include="src\win32\w32main.cpp" />
+    <ClCompile Include="src\bsp.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\clipboard.cpp" />
+    <ClCompile Include="src\confscreen.cpp" />
+    <ClCompile Include="src\constraint.cpp" />
+    <ClCompile Include="src\constrainteq.cpp" />
+    <ClCompile Include="src\describescreen.cpp" />
+    <ClCompile Include="src\draw.cpp" />
+    <ClCompile Include="src\drawconstraint.cpp" />
+    <ClCompile Include="src\drawentity.cpp" />
+    <ClCompile Include="src\entity.cpp" />
+    <ClCompile Include="src\export.cpp" />
+    <ClCompile Include="src\exportstep.cpp" />
+    <ClCompile Include="src\exportvector.cpp" />
+    <ClCompile Include="src\expr.cpp" />
+    <ClCompile Include="src\file.cpp" />
+    <ClCompile Include="src\generate.cpp" />
+    <ClCompile Include="src\glhelper.cpp" />
+    <ClCompile Include="src\graphicswin.cpp" />
+    <ClCompile Include="src\group.cpp" />
+    <ClCompile Include="src\groupmesh.cpp" />
+    <ClCompile Include="src\mesh.cpp" />
+    <ClCompile Include="src\modify.cpp" />
+    <ClCompile Include="src\mouse.cpp" />
+    <ClCompile Include="src\polygon.cpp" />
+    <ClCompile Include="src\request.cpp" />
+    <ClCompile Include="src\solvespace.cpp" />
+    <ClCompile Include="src\srf\boolean.cpp" />
+    <ClCompile Include="src\srf\curve.cpp" />
+    <ClCompile Include="src\srf\merge.cpp" />
+    <ClCompile Include="src\srf\ratpoly.cpp" />
+    <ClCompile Include="src\srf\raycast.cpp" />
+    <ClCompile Include="src\srf\surface.cpp" />
+    <ClCompile Include="src\srf\surfinter.cpp" />
+    <ClCompile Include="src\srf\triangulate.cpp" />
+    <ClCompile Include="src\style.cpp" />
+    <ClCompile Include="src\system.cpp" />
+    <ClCompile Include="src\textscreens.cpp" />
+    <ClCompile Include="src\textwin.cpp" />
+    <ClCompile Include="src\toolbar.cpp" />
+    <ClCompile Include="src\ttf.cpp" />
+    <ClCompile Include="src\undoredo.cpp" />
+    <ClCompile Include="src\util.cpp" />
+    <ClCompile Include="src\view.cpp" />
+    <ClCompile Include="src\win32\w32util.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="solvespace.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="src\win32\icon.ico" />
+    <Image Include="small.ico" />
+    <Image Include="src\icons\angle.png" />
+    <Image Include="src\icons\arc.png" />
+    <Image Include="src\icons\assemble.png" />
+    <Image Include="src\icons\bezier.png" />
+    <Image Include="src\icons\char-0-check-false.png" />
+    <Image Include="src\icons\char-1-check-true.png" />
+    <Image Include="src\icons\char-2-radio-false.png" />
+    <Image Include="src\icons\char-3-radio-true.png" />
+    <Image Include="src\icons\circle.png" />
+    <Image Include="src\icons\constraint.png" />
+    <Image Include="src\icons\construction.png" />
+    <Image Include="src\icons\edges.png" />
+    <Image Include="src\icons\equal.png" />
+    <Image Include="src\icons\extrude.png" />
+    <Image Include="src\icons\faces.png" />
+    <Image Include="src\icons\hidden-lines.png" />
+    <Image Include="src\icons\horiz.png" />
+    <Image Include="src\icons\in3d.png" />
+    <Image Include="src\icons\length.png" />
+    <Image Include="src\icons\line.png" />
+    <Image Include="src\icons\mesh.png" />
+    <Image Include="src\icons\normal.png" />
+    <Image Include="src\icons\ontoworkplane.png" />
+    <Image Include="src\icons\other-supp.png" />
+    <Image Include="src\icons\parallel.png" />
+    <Image Include="src\icons\perpendicular.png" />
+    <Image Include="src\icons\point.png" />
+    <Image Include="src\icons\pointonx.png" />
+    <Image Include="src\icons\rectangle.png" />
+    <Image Include="src\icons\ref.png" />
+    <Image Include="src\icons\same-orientation.png" />
+    <Image Include="src\icons\shaded.png" />
+    <Image Include="src\icons\sketch-in-3d.png" />
+    <Image Include="src\icons\sketch-in-plane.png" />
+    <Image Include="src\icons\step-rotate.png" />
+    <Image Include="src\icons\step-translate.png" />
+    <Image Include="src\icons\symmetric.png" />
+    <Image Include="src\icons\tangent-arc.png" />
+    <Image Include="src\icons\text.png" />
+    <Image Include="src\icons\trim.png" />
+    <Image Include="src\icons\vert.png" />
+    <Image Include="src\icons\workplane.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="manifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\Makefile.am" />
+    <None Include="src\png2c.pl" />
+    <None Include="src\pngchar2c.pl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="extlib\libpng\libpng.lib" />
+    <Library Include="extlib\si\siapp.lib" />
+    <Library Include="extlib\zlib\zlib.lib" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
