@@ -111,7 +111,7 @@ void Constraint::ConstrainCoincident(hEntity ptA, hEntity ptB) {
     Constrain(POINTS_COINCIDENT, ptA, ptB,
         Entity::NO_ENTITY, Entity::NO_ENTITY, false, false);
 }
-void Constraint::ConstrainValue(int type, hEntity ptA, hEntity ptB, hEntity entityA, double valA)
+void Constraint::ConstrainValue(int type, hEntity ptA, hEntity ptB, hEntity entityA, hEntity entityB, double valA)
 {
 	Constraint c;
 	memset(&c, 0, sizeof(c));
@@ -121,6 +121,7 @@ void Constraint::ConstrainValue(int type, hEntity ptA, hEntity ptB, hEntity enti
 	c.ptA = ptA;
 	c.ptB = ptB;
 	c.entityA = entityA;
+	c.entityB = entityB;
 	c.valA = valA;
 	AddConstraint(&c, false);
 }

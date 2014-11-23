@@ -154,9 +154,20 @@ void GraphicsWindow::CopySelection(void) {
 			if (!SS.clipboard.ContainsEntity(c->entityA)) continue;
 		}
 		else if (c->type == Constraint::EQUAL_RADIUS) {
+			if (!SS.copyConstraints) continue;
 			if (!SS.clipboard.ContainsEntity(c->entityA) && !SS.clipboard.ContainsEntity(c->entityB)) continue;
 			if (SS.clipboard.ContainsEntity(c->entityA) && SS.clipboard.ContainsEntity(c->entityB)) continue;	//mv note: only one circle with this particular constraint can be copied!
-			c = c;
+		}
+		else if (c->type == Constraint::PARALLEL /* || c->type == Constraint::ANGLE*/) {
+			if (!SS.copyConstraints) continue;
+			if (!SS.clipboard.ContainsEntity(c->entityA)) continue;
+			if (!SS.clipboard.ContainsEntity(c->entityB)) continue;
+		}
+		else if (c->type == Constraint::SYMMETRIC_LINE) {
+			if (!SS.copyConstraints) continue;
+			if (!SS.clipboard.ContainsEntity(c->ptA)) continue;
+			if (!SS.clipboard.ContainsEntity(c->ptB)) continue;
+			if (!SS.clipboard.ContainsEntity(c->entityA)) continue;
 		}
 		else {
             continue;
@@ -251,6 +262,7 @@ void GraphicsWindow::PasteClipboard(Vector trans, double theta, double scale) {
 					Entity::NO_ENTITY,
 					Entity::NO_ENTITY,
 					SS.clipboard.NewEntityFor(c->entityA),
+					Entity::NO_ENTITY,
 					c->valA);
 			}
 		}
@@ -259,6 +271,7 @@ void GraphicsWindow::PasteClipboard(Vector trans, double theta, double scale) {
 			Constraint::ConstrainValue(c->type,
 				SS.clipboard.NewEntityFor(c->ptA),
 				SS.clipboard.NewEntityFor(c->ptB),
+				Entity::NO_ENTITY,
 				Entity::NO_ENTITY,
 				c->valA);
 		}
@@ -281,6 +294,40 @@ void GraphicsWindow::PasteClipboard(Vector trans, double theta, double scale) {
 						Entity::NO_ENTITY,
 						c->entityA,
 						SS.clipboard.NewEntityFor(c->entityB),
+						false,
+						false);
+				}
+			}
+		}
+		if (SS.clipboard.ContainsEntity(c->entityA) && SS.clipboard.ContainsEntity(c->entityB)) {
+			if (!SS.copyConstraints) continue;
+			/* UNRELIABLE & SLOW AS HELL
+			if (c->type == Constraint::ANGLE) {
+				Constraint::ConstrainValue(c->type,
+					Entity::NO_ENTITY,
+					Entity::NO_ENTITY,
+					SS.clipboard.NewEntityFor(c->entityA),
+					SS.clipboard.NewEntityFor(c->entityB),
+					c->valA);
+			}*/
+			if (c->type == Constraint::PARALLEL) {
+				Constraint::Constrain(c->type,
+					Entity::NO_ENTITY,
+					Entity::NO_ENTITY,
+					SS.clipboard.NewEntityFor(c->entityA),
+					SS.clipboard.NewEntityFor(c->entityB),
+					false,
+					false);
+			}
+			if (SS.clipboard.ContainsEntity(c->ptA) &&
+				SS.clipboard.ContainsEntity(c->ptB) &&
+				SS.clipboard.ContainsEntity(c->entityA)) {
+				if (c->type == Constraint::SYMMETRIC_LINE) {
+					Constraint::Constrain(c->type,
+						SS.clipboard.NewEntityFor(c->ptA),
+						SS.clipboard.NewEntityFor(c->ptB),
+						SS.clipboard.NewEntityFor(c->entityA),
+						Entity::NO_ENTITY,
 						false,
 						false);
 				}
