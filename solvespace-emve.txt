@@ -1,0 +1,33 @@
+Version 2.1eMVe2
+
+Copy equal radius constraint
+Let's say that we are in conceptual state of designing our part
+and we need to place 50 or so holes onto a piece of sheet
+and we don't know their exact size. They may be 2.5 or 2.7 mm.
+So we create the first hole and constrain it to 2.5mm.
+Then we create a copy of it and constrain it to the first one,
+which involves selecting both and pressing Q. Then we repeat
+the last step 48 times.
+So for this special case we can copy the equal constraint now.
+We create the first hole, then we create copy of it,
+then we constrain the first hole to 2.5mm.
+Then we constrain the both holes to be equal.
+We have 2 holes now. The first one with diameter constraint
+(master) and its first equal copy (slave).
+We switch the copy constraints on, copy the slave hole
+(select and Ctrl+C) and paste it 48 times.
+
+Copy horizontal constraint
+Copy vertical constraint
+Copy dimension constraint
+We construct rectangle of exact size and making its copy
+with copy constraints on is matter of pressing Ctrl+C and Ctrl+V.
+
+Copy diameter constraint
+This is needed when we construct more sophisticated holes with
+arcs and line segments. The copied arcs shall be diameter constrained
+to their originals.
+
+See it in action on youtube here: https://www.youtube.com/watch?v=3uvg_3tJ3qk
+
+23.11.2014 10:43:39 michal@vanka.net
