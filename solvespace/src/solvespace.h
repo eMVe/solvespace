@@ -853,8 +853,9 @@ public:
         List<Constraint>        c;
 
         void Clear(void);
-        bool ContainsEntity(hEntity old);
-        hEntity NewEntityFor(hEntity old);
+        bool ContainsEntityWithPoint(hEntity old);
+		bool ContainsEntity(hEntity old);
+		hEntity NewEntityFor(hEntity old);
     };
     Clipboard clipboard;
 

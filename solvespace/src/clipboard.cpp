@@ -26,11 +26,23 @@ hEntity SolveSpace::Clipboard::NewEntityFor(hEntity he) {
     }
     return Entity::NO_ENTITY;
 }
+//mv If the clipboard entity contains given point, then it returns 1.
+
+bool SolveSpace::Clipboard::ContainsEntityWithPoint(hEntity he) 
+{
+	hEntity hen = NewEntityFor(he);
+	if (hen.v) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
 
 bool SolveSpace::Clipboard::ContainsEntity(hEntity he) {
 
 	Entity *ea = SK.GetEntityNoOops(he);
-	if (ea && (ea->type == Entity::LINE_SEGMENT || ea->type == Entity::CIRCLE || ea->type == Entity::ARC_OF_CIRCLE)) {
+	//if (ea && (ea->type == Entity::LINE_SEGMENT || ea->type == Entity::CIRCLE || ea->type == Entity::ARC_OF_CIRCLE)) {
 		ClipboardRequest *cr;
 		for (cr = r.First(); cr; cr = r.NextAfter(cr)) {
 			if ((cr->oldEnt.v&0xffff0000) == (he.v&0xffff0000)) {
@@ -38,15 +50,7 @@ bool SolveSpace::Clipboard::ContainsEntity(hEntity he) {
 			}
 		}
 		return false;
-	}
-
-
-    hEntity hen = NewEntityFor(he);
-    if(hen.v) {
-        return true;
-    } else {
-        return false;
-    }
+	//}
 }
 
 void GraphicsWindow::DeleteSelection(void) {
@@ -125,8 +129,8 @@ void GraphicsWindow::CopySelection(void) {
     Constraint *c;
     for(c = SK.constraint.First(); c; c = SK.constraint.NextAfter(c)) {
         if(c->type == Constraint::POINTS_COINCIDENT) {
-            if(!SS.clipboard.ContainsEntity(c->ptA)) continue;  //mv no entities for given points -> empty points -> don't constrain
-            if(!SS.clipboard.ContainsEntity(c->ptB)) continue;
+            if(!SS.clipboard.ContainsEntityWithPoint(c->ptA)) continue;  //mv no entities for given points -> empty points -> don't constrain
+            if(!SS.clipboard.ContainsEntityWithPoint(c->ptB)) continue;
         }
 		else if (c->type == Constraint::HORIZONTAL || c->type == Constraint::VERTICAL) {
 			if (!SS.copyConstraints) continue;
@@ -144,7 +148,7 @@ void GraphicsWindow::CopySelection(void) {
 				if (!SS.clipboard.ContainsEntity(c->entityA)) continue;
 			}
         }
-        else if(c->type == Constraint::PT_PT_DISTANCE) {
+		else if (c->type == Constraint::PT_PT_DISTANCE) {
 			if (!SS.copyConstraints) continue;
 			if (!SS.clipboard.ContainsEntity(c->ptA)) continue;
 			if (!SS.clipboard.ContainsEntity(c->ptB)) continue;
@@ -167,6 +171,11 @@ void GraphicsWindow::CopySelection(void) {
 			if (!SS.copyConstraints) continue;
 			if (!SS.clipboard.ContainsEntity(c->ptA)) continue;
 			if (!SS.clipboard.ContainsEntity(c->ptB)) continue;
+			if (!SS.clipboard.ContainsEntity(c->entityA)) continue;
+		}
+		else if (c->type == Constraint::PT_LINE_DISTANCE) {
+			if (!SS.copyConstraints) continue;
+			if (!SS.clipboard.ContainsEntity(c->ptA)) continue;
 			if (!SS.clipboard.ContainsEntity(c->entityA)) continue;
 		}
 		else {
@@ -272,6 +281,15 @@ void GraphicsWindow::PasteClipboard(Vector trans, double theta, double scale) {
 				SS.clipboard.NewEntityFor(c->ptA),
 				SS.clipboard.NewEntityFor(c->ptB),
 				Entity::NO_ENTITY,
+				Entity::NO_ENTITY,
+				c->valA);
+		}
+		if (c->type == Constraint::PT_LINE_DISTANCE) {
+			if (!SS.copyConstraints) continue;
+			Constraint::ConstrainValue(c->type,
+				SS.clipboard.NewEntityFor(c->ptA),
+				Entity::NO_ENTITY,
+				SS.clipboard.NewEntityFor(c->entityA),
 				Entity::NO_ENTITY,
 				c->valA);
 		}
