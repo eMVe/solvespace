@@ -3,7 +3,7 @@ Version 2.1eMVe2
 IMPORTANT:
 Please consider the eMVe branch as experimental.
 Don't use it for the real :) stuff.
-It would also be useful to read this discussion:
+It could be also useful to read this discussion:
 http://solvespace.com/forum.pl?action=viewthread&parent=307
 
 New features in eMVe branch:
