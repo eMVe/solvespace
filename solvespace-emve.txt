@@ -49,3 +49,7 @@ Copy point to line segment distance constraint
 
 Version eMVe6
 Copy equal line length constraint (by default turned off).
+
+Version eMVe7
+Fixed ContainsEntityWithPoint() bug.
+

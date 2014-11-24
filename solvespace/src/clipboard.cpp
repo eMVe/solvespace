@@ -137,8 +137,8 @@ void GraphicsWindow::CopySelection(void) {
             Entity *ea = SK.GetEntityNoOops(c->ptA);
             Entity *eb = SK.GetEntityNoOops(c->ptB);
             if(ea||eb) {
-                if(!SS.clipboard.ContainsEntity(c->ptA)) continue;
-                if(!SS.clipboard.ContainsEntity(c->ptB)) continue;
+				if (!SS.clipboard.ContainsEntityWithPoint(c->ptA)) continue;
+				if (!SS.clipboard.ContainsEntityWithPoint(c->ptB)) continue;
             }
             if(ea||eb) {
 				Entity *ec = SK.GetEntityNoOops(c->entityA);
@@ -150,8 +150,8 @@ void GraphicsWindow::CopySelection(void) {
         }
 		else if (c->type == Constraint::PT_PT_DISTANCE) {
 			if (!SS.copyConstraints) continue;
-			if (!SS.clipboard.ContainsEntity(c->ptA)) continue;
-			if (!SS.clipboard.ContainsEntity(c->ptB)) continue;
+			if (!SS.clipboard.ContainsEntityWithPoint(c->ptA)) continue;
+			if (!SS.clipboard.ContainsEntityWithPoint(c->ptB)) continue;
         }
 		else if (c->type == Constraint::DIAMETER) {
 			if (!SS.copyConstraints) continue;
@@ -169,8 +169,8 @@ void GraphicsWindow::CopySelection(void) {
 		}
 		else if (c->type == Constraint::SYMMETRIC_LINE) {
 			if (!SS.copyConstraints) continue;
-			if (!SS.clipboard.ContainsEntity(c->ptA)) continue;
-			if (!SS.clipboard.ContainsEntity(c->ptB)) continue;
+			if (!SS.clipboard.ContainsEntityWithPoint(c->ptA)) continue;
+			if (!SS.clipboard.ContainsEntityWithPoint(c->ptB)) continue;
 			if (!SS.clipboard.ContainsEntity(c->entityA)) continue;
 		}
 		else if (c->type == Constraint::PT_LINE_DISTANCE) {
