@@ -19,7 +19,8 @@ We switch the copy constraints on, copy the slave hole
 
 Copy horizontal constraint
 Copy vertical constraint
-Copy dimension constraint
+Copy point to point distance constraint
+Copy line segment length distance constraint
 We construct rectangle of exact size and making its copy
 with copy constraints on is matter of pressing Ctrl+C and Ctrl+V.
 
@@ -37,4 +38,4 @@ Copy parallel constraint
 Copy symmetric constraint
 
 Version eMVe5
-Copy point to line distance constraint
+Copy point to line segment distance constraint
