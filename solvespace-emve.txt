@@ -1,5 +1,12 @@
 Version 2.1eMVe2
 
+IMPORTANT:
+Please consider the eMVe branch as experimental.
+Don't use it for the real :) stuff.
+It would also be useful to read this discussion:
+http://solvespace.com/forum.pl?action=viewthread&parent=307
+
+New features in eMVe branch:
 Copy equal radius constraint
 Let's say that we are in conceptual state of designing our part
 and we need to place 50 or so holes onto a piece of sheet
@@ -39,3 +46,6 @@ Copy symmetric constraint
 
 Version eMVe5
 Copy point to line segment distance constraint
+
+Version eMVe6
+Copy equal line length constraint (by default turned off).
