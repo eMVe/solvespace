@@ -42,7 +42,7 @@ bool SolveSpace::Clipboard::ContainsEntityWithPoint(hEntity he)
 bool SolveSpace::Clipboard::ContainsEntity(hEntity he) {
 
 	Entity *ea = SK.GetEntityNoOops(he);
-	//if (ea && (ea->type == Entity::LINE_SEGMENT || ea->type == Entity::CIRCLE || ea->type == Entity::ARC_OF_CIRCLE)) {
+	if (ea && (ea->type == Entity::LINE_SEGMENT || ea->type == Entity::CIRCLE || ea->type == Entity::ARC_OF_CIRCLE)) {
 		ClipboardRequest *cr;
 		for (cr = r.First(); cr; cr = r.NextAfter(cr)) {
 			if ((cr->oldEnt.v&0xffff0000) == (he.v&0xffff0000)) {
@@ -50,7 +50,7 @@ bool SolveSpace::Clipboard::ContainsEntity(hEntity he) {
 			}
 		}
 		return false;
-	//}
+	}
 }
 
 void GraphicsWindow::DeleteSelection(void) {
@@ -164,8 +164,8 @@ void GraphicsWindow::CopySelection(void) {
 		}
 		else if (c->type == Constraint::PARALLEL /* || c->type == Constraint::ANGLE*/) {
 			if (!SS.copyConstraints) continue;
-			if (!SS.clipboard.ContainsEntity(c->entityA)) continue;
-			if (!SS.clipboard.ContainsEntity(c->entityB)) continue;
+			if (!SS.clipboard.ContainsEntity(c->entityA) && !SS.clipboard.ContainsEntity(c->entityB)) continue;
+			//if (!SS.clipboard.ContainsEntity(c->entityB)) continue;
 		}
 		else if (c->type == Constraint::SYMMETRIC_LINE) {
 			if (!SS.copyConstraints) continue;
@@ -178,6 +178,14 @@ void GraphicsWindow::CopySelection(void) {
 			if (!SS.clipboard.ContainsEntity(c->ptA)) continue;
 			if (!SS.clipboard.ContainsEntity(c->entityA)) continue;
 		}
+#if 0
+		else if (c->type == Constraint::EQUAL_LENGTH_LINES) {	//Dangerous. You have to know what are you doing.
+			if (!SS.copyConstraints) continue;					//It works well only for copying of constrained copy of original.
+																//Otherwise it can make solver busy and solvespace unresponsive.
+			if (!SS.clipboard.ContainsEntity(c->entityA) && !SS.clipboard.ContainsEntity(c->entityB)) continue;	//no entity in clipboard -> don't copy
+			if (SS.clipboard.ContainsEntity(c->entityA) && SS.clipboard.ContainsEntity(c->entityB)) continue;	//both entities in clipboard -> don't copy
+		}
+#endif
 		else {
             continue;
         }
@@ -293,8 +301,8 @@ void GraphicsWindow::PasteClipboard(Vector trans, double theta, double scale) {
 				Entity::NO_ENTITY,
 				c->valA);
 		}
-		if (c->type == Constraint::EQUAL_RADIUS && requestCount == 1) {	//mv can't work with multiple circles in the clipboard
-			if (!SS.copyConstraints) continue;
+		if (c->type == Constraint::EQUAL_RADIUS && requestCount == 1) {	//mv can't work with multiple circles in clipboard
+			if (!SS.copyConstraints) continue;							//It might work but with unexpected results.
 			Entity *ea = SK.GetEntityNoOops(c->entityA);
 			if (ea) {
 				if(SS.clipboard.ContainsEntity(c->entityA)) {
@@ -317,18 +325,42 @@ void GraphicsWindow::PasteClipboard(Vector trans, double theta, double scale) {
 				}
 			}
 		}
-		if (SS.clipboard.ContainsEntity(c->entityA) && SS.clipboard.ContainsEntity(c->entityB)) {
+		if (c->type == Constraint::EQUAL_LENGTH_LINES) {   //eMVe6. Dangerous. Can make solvespace unresponsive.
+			if (!SS.copyConstraints) continue;
+				if (SS.clipboard.ContainsEntity(c->entityA)) {
+					Constraint::Constrain(c->type,
+						Entity::NO_ENTITY,
+						Entity::NO_ENTITY,
+						SS.clipboard.NewEntityFor(c->entityA),
+						c->entityB,
+						false,
+						false);
+				}
+				if (SS.clipboard.ContainsEntity(c->entityB)) {
+					Constraint::Constrain(c->type,
+						Entity::NO_ENTITY,
+						Entity::NO_ENTITY,
+						c->entityA,
+						SS.clipboard.NewEntityFor(c->entityB),
+						false,
+						false);
+				}
+			
+		}
+		if (c->type == Constraint::ANGLE) {
 			if (!SS.copyConstraints) continue;
 			/* UNRELIABLE & SLOW AS HELL
-			if (c->type == Constraint::ANGLE) {
-				Constraint::ConstrainValue(c->type,
-					Entity::NO_ENTITY,
-					Entity::NO_ENTITY,
-					SS.clipboard.NewEntityFor(c->entityA),
-					SS.clipboard.NewEntityFor(c->entityB),
-					c->valA);
+			if (SS.clipboard.ContainsEntity(c->entityA) && SS.clipboard.ContainsEntity(c->entityB)) {
+			Constraint::ConstrainValue(c->type,
+			Entity::NO_ENTITY,
+			Entity::NO_ENTITY,
+			SS.clipboard.NewEntityFor(c->entityA),
+			SS.clipboard.NewEntityFor(c->entityB),
+			c->valA);
 			}*/
-			if (c->type == Constraint::PARALLEL) {
+		}
+		if (c->type == Constraint::PARALLEL) {
+			if (SS.clipboard.ContainsEntity(c->entityA) && SS.clipboard.ContainsEntity(c->entityB)) {
 				Constraint::Constrain(c->type,
 					Entity::NO_ENTITY,
 					Entity::NO_ENTITY,
@@ -337,18 +369,36 @@ void GraphicsWindow::PasteClipboard(Vector trans, double theta, double scale) {
 					false,
 					false);
 			}
+			else if (SS.clipboard.ContainsEntity(c->entityA)) {
+				Constraint::Constrain(c->type,
+					Entity::NO_ENTITY,
+					Entity::NO_ENTITY,
+					SS.clipboard.NewEntityFor(c->entityA),
+					c->entityB,
+					false,
+					false);
+			}
+			else if (SS.clipboard.ContainsEntity(c->entityB)) {
+				Constraint::Constrain(c->type,
+					Entity::NO_ENTITY,
+					Entity::NO_ENTITY,
+					c->entityA,
+					SS.clipboard.NewEntityFor(c->entityB),
+					false,
+					false);
+			}
+		}
+		if (c->type == Constraint::SYMMETRIC_LINE) {
 			if (SS.clipboard.ContainsEntity(c->ptA) &&
 				SS.clipboard.ContainsEntity(c->ptB) &&
 				SS.clipboard.ContainsEntity(c->entityA)) {
-				if (c->type == Constraint::SYMMETRIC_LINE) {
-					Constraint::Constrain(c->type,
-						SS.clipboard.NewEntityFor(c->ptA),
-						SS.clipboard.NewEntityFor(c->ptB),
-						SS.clipboard.NewEntityFor(c->entityA),
-						Entity::NO_ENTITY,
-						false,
-						false);
-				}
+				Constraint::Constrain(c->type,
+					SS.clipboard.NewEntityFor(c->ptA),
+					SS.clipboard.NewEntityFor(c->ptB),
+					SS.clipboard.NewEntityFor(c->entityA),
+					Entity::NO_ENTITY,
+					false,
+					false);
 			}
 		}
 	}
