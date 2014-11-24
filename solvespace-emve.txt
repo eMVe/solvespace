@@ -31,3 +31,10 @@ to their originals.
 See it in action on youtube here: https://www.youtube.com/watch?v=3uvg_3tJ3qk
 
 23.11.2014 10:43:39 michal at vanka point net
+
+Version eMVe4
+Copy parallel constraint
+Copy symmetric constraint
+
+Version eMVe5
+Copy point to line distance constraint
