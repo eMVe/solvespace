@@ -53,3 +53,9 @@ Copy equal line length constraint (by default turned off).
 Version eMVe7
 Fixed ContainsEntityWithPoint() bug.
 
+Version eMVe8
+Extended constraining. By now equal radius, parallel and equal lines
+can be copied as "inner" constraints. The last one with unexpected
+results though.
+
+

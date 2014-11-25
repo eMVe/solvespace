@@ -443,6 +443,7 @@ public:
     void CopySelection(void);
     void PasteClipboard(Vector trans, double theta, double scale);
     static void MenuClipboard(int id);
+	void ConstrainSameSomething(Constraint *c);
 
     // The width and height (in pixels) of the window.
     double width, height;
