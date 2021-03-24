@@ -1,0 +1,410 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\clipboard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\confscreen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\constraint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\srf\boolean.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\bsp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\srf\curve.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\describescreen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\draw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\drawconstraint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\drawentity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\export.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\exportstep.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\exportvector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\expr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\file.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\constrainteq.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\win32\freeze.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\generate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphicswin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\glhelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\group.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\groupmesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\srf\merge.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\modify.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mouse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\polygon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\srf\ratpoly.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\srf\raycast.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\request.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\solvespace.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\win32\w32util.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\win32\w32main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\view.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\undoredo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ttf.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\srf\triangulate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\toolbar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\textwin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\textscreens.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\system.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\srf\surfinter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\srf\surface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\style.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\bitmapextra.table.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\built\bitmapextra.table.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\bitmapfont.table.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\built\bitmapfont.table.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dsc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\expr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\font.table.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\win32\freeze.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\icons.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\built\icons.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\icons-proto.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\built\icons-proto.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="extlib\libpng\png.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="extlib\libpng\pngconf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="extlib\libpng\pnglibconf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\polygon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="extlib\si\si.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="extlib\si\siapp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="extlib\si\siSync.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="extlib\si\siSyncPriv.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sketch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\solvespace.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="solvespaceWin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="extlib\si\spwdata.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="extlib\si\spwerror.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="extlib\si\spwmacro.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="extlib\zlib\zlib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="extlib\zlib\zconf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\srf\surface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="extlib\zlib\zlib.lib">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="extlib\si\siapp.lib">
+      <Filter>Libraries</Filter>
+    </Library>
+    <Library Include="extlib\libpng\libpng.lib">
+      <Filter>Libraries</Filter>
+    </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="solvespace.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="manifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="src\win32\icon.ico" />
+    <Image Include="small.ico" />
+    <Image Include="src\icons\angle.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\arc.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\assemble.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\bezier.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\circle.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\constraint.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\construction.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\edges.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\equal.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\extrude.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\faces.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\hidden-lines.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\horiz.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\char-0-check-false.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\char-1-check-true.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\char-2-radio-false.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\char-3-radio-true.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\in3d.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\length.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\line.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\normal.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\mesh.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\ontoworkplane.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\other-supp.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\parallel.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\perpendicular.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\point.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\pointonx.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\rectangle.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\same-orientation.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\shaded.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\workplane.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\vert.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\trim.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\text.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\tangent-arc.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\step-translate.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\step-rotate.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\sketch-in-plane.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\sketch-in-3d.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\symmetric.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="src\icons\ref.png">
+      <Filter>Images</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\Makefile.am" />
+    <None Include="src\png2c.pl" />
+    <None Include="src\pngchar2c.pl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{0b338b93-3033-45ae-bc82-5c864c757af3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{f8d73046-8720-4225-a748-531360a326fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries">
+      <UniqueIdentifier>{9fd6694e-c217-4eb5-8a2c-64df2babb336}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Images">
+      <UniqueIdentifier>{cb9738e8-a276-4df5-9166-f7f3b93e6268}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
